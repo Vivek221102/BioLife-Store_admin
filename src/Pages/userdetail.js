@@ -59,6 +59,7 @@ function User_detail(){
                                             <th data-breakpoints="xs">Mobile</th>
                                             <th data-breakpoints="xs">Address</th>
                                             <th>Action</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
 
@@ -75,9 +76,10 @@ function User_detail(){
                                             <td>{val.mail_id}</td>
                                             <td>{val.mobile}</td> 
                                             <td>{val.address}</td>
-                                            <td style={{display: "flex", gap: "10px", width: "min-content"}}> 
-                                            <button  class="btn btn-primary btn-block" style={{marginTop:"0px"}}  data-target="#exampleModalCenter" data-toggle="modal" onClick={() => delid(val.user_id)}><i class="fa-solid fa-trash"></i><i class="zmdi zmdi-delete"></i> </button>
+                                            <td> 
+                                            <button  class="btn btn-primary btn-block" style={{marginTop:"0px",height:"35px",width:"85px"}}  data-target="#exampleModalCenter" data-toggle="modal" onClick={() => delid(val.user_id)}><i class="fa-solid fa-trash"></i><i class="zmdi zmdi-block"> Block</i> </button>
                                             </td>
+                                            <td><b>{val.status}</b></td>
                                         </tr>
                                        
                                         

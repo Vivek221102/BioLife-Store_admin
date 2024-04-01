@@ -1,17 +1,30 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios';
 function Home(){
-const [user, setuser] = useState(0);
+
+const [totaluser, setTotalUser] = useState(0);
 const [cat, setcat] = useState(0);
 const [item, setitem] = useState(0);
 const [oreder, setorder] = useState(0);
-useEffect(()=>{
-    // Axios.get("http://localhost:1121/api/getusersnums").then((response)=>{
-    //         alert(response.data.Count);
-    // })
-})
 
-
+useEffect(() => {
+        Axios.get("http://localhost:1121/api/getusersnums").then((Response)=>{
+            // alert(Response.data[0].count);
+            setTotalUser(Response.data[0].count);
+        }) 
+        Axios.get("http://localhost:1121/api/countcateg").then((Response)=>{
+            // alert(Response.data[0].count);
+            setcat(Response.data[0].count);
+        }) 
+        Axios.get("http://localhost:1121/api/countitem").then((Response)=>{
+            // alert(Response.data[0].count);
+            setitem(Response.data[0].count);
+        }) 
+        Axios.get("http://localhost:1121/api/countorder").then((Response)=>{
+            // alert(Response.data[0].count);
+            setorder(Response.data[0].count);
+        }) 
+ })
     return(
             <>
 
@@ -34,7 +47,7 @@ useEffect(()=>{
                     <div class="card widget_2">
                         <div class="body">
                             <h6>total new Users</h6>
-                            <h2>{user}</h2>
+                            <h2>{totaluser}</h2>
                             <small>2% higher than last month</small>
                             <div class="progress">
                                 <div class="progress-bar l-amber" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style={{width: "45%"}}></div>
